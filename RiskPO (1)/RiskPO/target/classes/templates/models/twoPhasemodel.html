@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>2 фазная модель</title>
+</head>
+<body>
+    <header th:insert="blocks/header :: header"></header>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card"  >
+                    <img src="/images/2phase.png" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">Двухфазная модель данных (Two-phase model) - это архитектура программной системы, которая используется для обработки потоков данных в многопоточной среде. Она состоит из двух фаз:
+
+                            Подготовка данных (Preparation phase) - данные подготавливаются для последующей обработки.
+                            Обработка данных (Processing phase) - данные обрабатываются в соответствии с требованиями приложения.
+
+                            Каждая фаза выполняется в отдельном потоке и использует блокировки для защиты обрабатываемых данных от изменений другими потоками.
+
+                            Такая архитектура позволяет эффективно обрабатывать потоки данных в многопоточной среде, улучшает производительность системы и уменьшает вероятность блокировок, связанных с одновременным доступом к данным несколькими потоками. Однако она не подходит для обработки больших объемов данных, так как может привести к замедлению процесса обработки.
+                    </div>
+                </div>
+            </div>
+            <div class="col-7   ">
+    <form method="get" class="form-horizontal" action="/two-phase-simulate">
+        <div class="row mb-3">
+            <div class="row mb-3">
+                <label for="sel1" class="col-sm-3 col-form-label">Введите время работы симуляции в секундах:</label>
+                <div class="col-sm-5">
+                    <input type = "number" class="form-control" id="sel1" name="simulationTime" placeholder="0-1000">
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="row mb-3">
+                <label for="sel2" class="col-sm-3 col-form-label">Введите задержку передачи в милисекундах:</label>
+                <div class="col-sm-5">
+                    <input type = "number" class="form-control" id="sel2" name="transDelay" placeholder="0-1000">
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="row mb-3">
+                <label for="sel3" class="col-sm-3 col-form-label">Введите задержку распространения в миллисекундах:</label>
+                <div class="col-sm-5">
+                    <input type = "number" class="form-control" id="sel3" name="propagandDelay" placeholder="0-1000">
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="row mb-3">
+                <label for="sel4" class="col-sm-3 col-form-label">Введите задержку обработки в миллисекундах:</label>
+                <div class="col-sm-5">
+                    <input type = "number" class="form-control" id="sel4" name="processingDelay" placeholder="0-1000">
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="row mb-3">
+                <label for="sel5" class="col-sm-3 col-form-label">Введите верроятность потерь пакетов:</label>
+                <div class="col-sm-5">
+                    <input type = "number" class="form-control" step="0.00001" id="sel5" name="packetLostRate" placeholder="0-1">
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="row mb-3">
+                <label for="sel6" class="col-sm-3 col-form-label">Введите количество экспериментов:</label>
+                <div class="col-sm-5">
+                    <input type = "number" class="form-control" id="sel6" name="experimentCount" placeholder="0-1000">
+                </div>
+            </div>
+        </div>
+        <div class ="row mb-3">
+            <label for="sel7" class="col-sm-3 col-form-label">Введите границу значений которые не должны превышать потери пользователей:</label>
+            <div class="col-sm-5">
+                <input type = "number" class="form-control" id="sel7" name="probabilityLost" placeholder="0-1000">
+            </div>
+        </div>
+        <div class ="row mb-3">
+            <label for="sel8" class="col-sm-3 col-form-label">Введите границу для полученных пакетов:</label>
+            <div class="col-sm-5">
+                <input type = "number" class="form-control" id="sel8" name="probabilityResived" placeholder="0-1000">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-lg">Ok</button>
+    </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
